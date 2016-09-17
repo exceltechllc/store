@@ -5,5 +5,5 @@ var app = express();
 var PORT = 1227;
 
 app.listen(PORT, function(req, res){
-   console.log("Go to URL1 :- localhost:" + PORT);
+   console.log("Go to URL :- localhost:" + PORT);
 });
