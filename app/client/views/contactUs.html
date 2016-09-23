@@ -1,0 +1,41 @@
+<h1>Contact Us</h1>
+
+<form class="contactForm" name="contactForm" method="post" validation>
+    <div ng-show="contactUs.resultMessage.show">{{contactUs.resultMessage.message}}</div>
+    <div class="row">
+        <label class="col-md-1 col-lg-1 col-sm-1 text-right" for="firstName">
+            <span class="glyphicon glyphicon-user"></span>
+        </label>
+        <span class="col-md-5 col-lg-5 col-sm-11">
+            <input type="text" placeholder="First Name" name="firstName" ng-model="contactUs.formInfo.fName" ng-minlength="3" class="form-control" required/>
+        </span>
+        <span class="col-md-6 col-lg-6 col-sm-11 col-sm-offset-1 col-md-offset-0 col-lg-offset-0">
+            <input type="text" placeholder="Last Name" name="lastName" ng-model="contactUs.formInfo.lName" ng-minlength="3" class="form-control" required/>
+        </span>
+    </div>
+    <div class="row">
+        <label class="col-md-1 col-lg-1 col-sm-1 text-right" for="email">
+            <span class="glyphicon glyphicon-envelope"></span>
+        </label>
+        <span class="col-md-11 col-lg-11 col-sm-11 ">
+            <input type="email" placeholder="your@email.com" name="email" ng-model="contactUs.formInfo.email" class="form-control" required/>
+        </span>
+    </div>
+    <div class="row">
+        <label class="col-md-1 col-lg-1 col-sm-1 text-right" for="message">
+            <span class="glyphicon glyphicon-edit"></span>
+        </label>
+        <span class="col-md-11 col-lg-11 col-sm-11">
+            <textarea placeholder="Please enter your message for use. We will get back to you within 48 hours"
+                      name="message" id="message" rows="8" class="form-control" ng-model="contactUs.formInfo.message" ng-minlength="5" required></textarea>
+        </span>
+    </div>
+    <div class="row">
+        <label class="col-md-1 col-lg-1 col-sm-1 text-right">
+            <span class="glyphicon glyphicon-check"></span>
+        </label>
+        <span class="col-md-3 col-lg-3 col-sm-11">
+            <button ng-click="contactUs.submit(contactForm)" class="btn btn-md" ng-disabled="contactUs.submitButtonDisable">Send</button>
+        </span>
+    </div>
+</form>

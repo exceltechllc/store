@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="store">
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+<!--Use "/lib" for bower components-->
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
+
+    <link href="/client/css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-Hi I am me.
+
+
+<div ng-include="'/client/views/header.html'"></div>
+<div class="container mainContainer" ng-view></div>
+
+<!--Use "/lib" for bower components-->
+<script type="text/javascript" src="/lib/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="/lib/angular/angular.js"></script>
+<script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
+
+<script type="text/javascript" src="/client/js/services/contactUsService.js"></script>
+
+<script type="text/javascript" src="/client/js/controllers/homeController.js"></script>
+<script type="text/javascript" src="/client/js/controllers/contactUsController.js"></script>
+
+<script type="text/javascript" src="/client/js/angularConfig.js"></script>
+
 </body>
 </html>

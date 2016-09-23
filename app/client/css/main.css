@@ -1,0 +1,26 @@
+.mainContainer {
+    margin-top: 50px;
+}
+
+.mainContainer h1 {
+    color:lightblue;
+}
+
+.contactForm textarea {
+    max-width:100%;
+    resize:none;
+}
+
+.contactForm .row {
+    padding-bottom: 20px;
+}
+
+.contactForm .row .glyphicon {
+    color:lightblue;
+    font-size: 2em;
+}
+
+.contactForm .row .btn {
+    width: 100%;
+}
+
