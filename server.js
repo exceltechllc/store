@@ -10,7 +10,7 @@ app.get("/", function(req, res){
    res.sendfile(__dirname + '/index.html');
 });
 
-app.use("/lib", express.static(__dirname + "/app/bower_components"));
+app.use("/bower_components", express.static(__dirname + "/app/bower_components"));
 app.use("/client", express.static(__dirname + "/app/client"));
 app.use("/server", express.static(__dirname + "/app/server"));
 
