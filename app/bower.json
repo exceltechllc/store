@@ -5,7 +5,7 @@
     "Nimesh <parsippany911@yahoo.com>"
   ],
   "description": "",
-  "main": "",
+  "main": "./app/bower.json",
   "license": "MIT",
   "ignore": [
     "**/.*",
