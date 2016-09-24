@@ -39,4 +39,4 @@ jspm_packages
 
 store.iml
 
-app/bower_components/
+bower_components
