@@ -7,7 +7,7 @@ var PORT = process.env.PORT || 1227;
 
 
 app.get("/", function(req, res){
-   res.sendfile(__dirname + '/index.html');
+   res.sendFile(__dirname + '/index.html');
 });
 
 app.use("/bower_components", express.static(__dirname + "/app/bower_components"));

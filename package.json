@@ -2,8 +2,8 @@
   "name": "store",
   "version": "1.0.0",
   "description": "Exceltech store projet",
-  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "postinstall": "bower install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
