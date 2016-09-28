@@ -1,4 +1,4 @@
-angular.module("contactUsController",[])
+angular.module("contactUsControllers",[])
 .controller("contactController",['$scope', '$rootScope', '$log', 'contactServices', function($scope, $rootScope, $log, contactServices){
     var contactUs = this;
 

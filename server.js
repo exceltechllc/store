@@ -3,7 +3,7 @@ var sendgrid = require("sendgrid");
 var mongoose = require("mongoose");
 
 var app = express();
-var PORT = process.env.PORT || 1227;
+var PORT = process.env.PORT;
 
 
 app.get("/", function(req, res){
