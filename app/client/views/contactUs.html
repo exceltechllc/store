@@ -1,7 +1,7 @@
 <h1>Contact Us</h1>
 
-<form class="contactForm" name="contactForm" method="post" validation>
-    <div ng-show="contactUs.resultMessage.show">{{contactUs.resultMessage.message}}</div>
+<form class="contactForm" name="contactForm" method="post" validation ng-hide="contactUs.resultMessage.show">
+
     <div class="row">
         <label class="col-md-1 col-lg-1 col-sm-1 text-right" for="firstName">
             <span class="glyphicon glyphicon-user"></span>
@@ -39,3 +39,4 @@
         </span>
     </div>
 </form>
+<div ng-show="contactUs.resultMessage.show">{{contactUs.resultMessage.message}}</div>

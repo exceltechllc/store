@@ -7,10 +7,7 @@ angular.module("contactUsControllers",[])
     contactUs.submitButtonDisable   = false;
     contactUs.submitted             = false;
 
-
     contactUs.submit = function (contactForm){
-        console.log(contactForm);
-
         if (contactForm.$valid){
             contactUs.submitted             = true;
             contactUs.submitButtonDisable   = true;
@@ -18,16 +15,13 @@ angular.module("contactUsControllers",[])
                 name    : contactForm.firstName.$modelValue + " " + contactForm.lastName.$modelValue,
                 email   : contactForm.email.$modelValue,
                 message : contactForm.message.$modelValue
-
             };
             contactServices.sendForm(contactInfo).then(function (response) {
-                console.log(response);
-            },function(err){
-                console.log(err);
-            })
-
-        }else {
-
+                contactUs.formInfo = {};
+                contactUs.submitButtonDisable = false;
+                contactUs.resultMessage.show = true;
+                contactUs.resultMessage.message = response.message + ":- " + response.returnObj.message;
+            });
         }
     }
 }]);
