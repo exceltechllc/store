@@ -1,6 +1,5 @@
 angular.module("store", [
     "ngRoute",
-    "ui.grid",
     "homeControllers",
     "contactUsControllers",
     "contactUsServices",
