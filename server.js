@@ -3,8 +3,8 @@ var sendgrid    = require("sendgrid");
 var mongoose    = require("mongoose");
 var bodyParser  = require("body-parser");
 var items       = require("./app/server/itemsModel");
-var nodemailer  = require("nodemailer");
-var trasporter  = nodemailer.createTransport();
+/*var nodemailer  = require("nodemailer");
+var trasporter  = nodemailer.createTransport();*/
 
 var app = express();
 var PORT = process.env.PORT;
@@ -55,7 +55,8 @@ app.post("/addItem", function (req, res) {
 });
 app.post("/contactUs", function (req, res){
 
-    trasporter.sendMail({
+    res.status(200).send({success:true, message: "your message has been sent", returnObj:req.body});
+    /*trasporter.sendMail({
         from    : req.body.email,
         to      : "parsippany911@yahoo.com",
         subject : "Question from " + req.body.name,
@@ -69,7 +70,7 @@ app.post("/contactUs", function (req, res){
             res.status(200).send({success:true, message: "your message has been sent", returnObj:req.body});
         }
 
-    });
+    });*/
 
 
 });
