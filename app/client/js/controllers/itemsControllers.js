@@ -4,7 +4,6 @@ angular.module("itemsControllers",[])
 
         itemsService.getData().then(function (data) {
             items.data = data;
-            console.log(items.data);
         });
 
     }]);

@@ -1,13 +1,12 @@
 var express     = require("express");
-var sendgrid    = require("sendgrid");
 var mongoose    = require("mongoose");
 var bodyParser  = require("body-parser");
 var items       = require("./app/server/itemsModel");
-/*var nodemailer  = require("nodemailer");
-var trasporter  = nodemailer.createTransport();*/
+var postmark = require("postmark");
 
 var app = express();
 var PORT = process.env.PORT;
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -53,26 +52,32 @@ app.post("/addItem", function (req, res) {
         }
     })
 });
+
 app.post("/contactUs", function (req, res){
 
-    res.status(200).send({success:true, message: "your message has been sent", returnObj:req.body});
-    /*trasporter.sendMail({
-        from    : req.body.email,
-        to      : "parsippany911@yahoo.com",
-        subject : "Question from " + req.body.name,
-        text    : req.body.message
-    },function (err, mail){
+    var senderDetail = {
+        "email":req.body.email,
+        "name" : req.body.name,
+        "message": req.body.message
+    };
+
+    var client = new postmark.Client(process.env.POSTMARK_API_KEY);
+    client.sendEmail({
+        "From":process.env.EMAIL,
+        "To":senderDetail.email,
+        "Bcc": process.env.EMAIL,
+        "Subject" : "ExcelTech Support",
+        "TextBody" : "Hello, " + senderDetail.name + ". Thank you for contacting ExcelTech Store. Please allow 48 hours to hear from representative to reply your message." +
+        " Your concern is very important to us. Your message is : " + senderDetail.message
+    },function(err,mail){
         if(err){
             console.log(err);
-        }else {
-            console.log("SENT");
-            console.log(mail);
-            res.status(200).send({success:true, message: "your message has been sent", returnObj:req.body});
+            res.status(404).send({success:false, message: "Oops!!! Something went wrong please try again", returnObj:err});
+        }else{
+            console.log(mail , senderDetail);
+            res.status(200).send({success:true, message: "your message has been sent", returnObj:senderDetail});
         }
-
-    });*/
-
-
+    });
 });
 app.listen(PORT, function(req, res){
    console.log("Go to URL :- localhost:" + PORT);

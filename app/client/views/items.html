@@ -1,15 +1,27 @@
 <h1>Items</h1>
 
 <!--<div ui-grid="items.uiGridItems" ng-cloak></div>-->
-
-<div class="row">
-    <div class="col-md-3 col-lg-3 col-sm-3 text-center">
-        <img src="/client/images/300x300.png" alt="Image" width="90%" height="auto"/>
+<style>
+    .itemPanel {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .strike {
+        text-decoration: line-through;
+        opacity:0.5;
+        font-size:0.7em;
+    }
+</style>
+<div class="row panel itemPanel " ng-repeat="item in items.data">
+    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+        <img src="/client/images/300x300.png" alt="Image" class="img-responsive img-circle" style="float: right"/>
     </div>
-    <div class="col-md-9 col-lg-9 col-sm-9">
-        <h2>Item Title</h2>
-        <h4>Item Model Number | Item SKU number</h4>
-        <h3>Item Price | Item Sale Price</h3>
-        <h4>Item Description</h4>
+    <div class="col-md-9 col-lg-9 col-sm-9 col-xs-9">
+        <h2>{{item.name}}</h2>
+        <h4><span>Model: {{item.modelNumber}}</span> - <span class="text-info"> SKU: {{item.sku}}</span></h4>
+
+        <h3><span ng-class="{'strike':'item.sale'}">Regular: {{ item.price | number | currency}}</span> <span ng-if="item.sale" class="text-success bg-warning">Sale: {{ item.sale | currency}}</span>
+        </h3>
+        <h4>{{item.description}}</h4>
     </div>
 </div>
